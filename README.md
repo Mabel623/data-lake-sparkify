@@ -12,7 +12,7 @@ At the end, a star schema has been used to allow the Sparkify team to readily ru
 The project contains the following components:
 
 etl.py reads data from S3, processes it into analytics tables, and then writes them to new S3 bucket
-dl.cfg contains your AWS credentials (which should not be included in finish push or add it in .gitignore)
+dl.cfg contains your AWS credentials **(which should not be included in finish push or add it in .gitignore)**
 
 ### Analytics Schema
 The analytics tables centers on the following fact table:
@@ -38,6 +38,8 @@ To execute the ETL pipeline from the command line, enter the following:
 
 python etl.py --bucket <your-output-s3-bucket-name>
 eg: if your output bucket is called "destination", then in command line, enter:
-    python etl.py --bucket "destination"
+    `python etl.py --bucket "destination"`
 
 Where <your-output-s3-bucket-name> is the name of a new S3 bucket where the final analytics tables will be written to. Make sure your working directory is at the top-level of the project.
+    
+You can work on your project with a smaller dataset found in the workspace, and then move on to the bigger dataset on AWS.
