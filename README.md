@@ -28,14 +28,16 @@ time - which contains start
 ### Instructions
 You will need to create a configuration file dl.cfg with the following structure, with S3 read and write policy.
 
+
+
 [AWS]
-AWS_ACCESS_KEY_ID=<your_aws_access_key_id>
+AWS_ACCESS_KEY_ID=<your_aws_access_key_id> <br/>
 AWS_SECRET_ACCESS_KEY=<your_aws_secret_access_key>
 
 To execute the ETL pipeline from the command line, enter the following:
 
 python etl.py --bucket <your-output-s3-bucket-name>
-eg: if your output bucket is called "udacity", then in command line, enter:
-    python etl.py --bucket "udacity"
+eg: if your output bucket is called "destination", then in command line, enter:
+    python etl.py --bucket "destination"
 
 Where <your-output-s3-bucket-name> is the name of a new S3 bucket where the final analytics tables will be written to. Make sure your working directory is at the top-level of the project.

@@ -45,7 +45,6 @@ def process_song_data(spark, input_data, output_data):
     """
     
     # get filepath to song data file
-    #song_data = input_data + "song_data/*/*/*/*.json"
     song_data = os.path.join(input_data, "song_data/*/*/*", "*.json")
 
     # Define type of data
@@ -70,7 +69,7 @@ def process_song_data(spark, input_data, output_data):
     
     # write songs table to parquet files partitioned by year and artist
     songs_table.write.parquet(
-        output_data + "songs_table.parquet",
+        output_data + "/songs_table.parquet",
         mode="overwrite",
         partitionBy=["year", "artist_id"]
     )
@@ -85,7 +84,7 @@ def process_song_data(spark, input_data, output_data):
     
     # write artists table to parquet files
     artists_table.write.parquet(
-        output_data + "artists_table.parquet",
+        output_data + "/artists_table.parquet",
         mode="overwrite"
 )
 
@@ -106,7 +105,6 @@ def process_log_data(spark, input_data, output_data):
     """
     
     # get filepath to log data file
-    #log_data = input_data + "log_data/*/*/*.json"
     log_data = os.path.join(input_data, "log_data/*/*", "*.json")
                 
     logdata_schema = StructType([
@@ -147,7 +145,7 @@ def process_log_data(spark, input_data, output_data):
 
     # write users table to parquet files
     users_table.write.parquet(
-        output_data + "users_table.parquet",
+        output_data + "/users_table.parquet",
         mode="overwrite"
     )
 
@@ -175,7 +173,7 @@ def process_log_data(spark, input_data, output_data):
     
     # write time table to parquet files partitioned by year and month
     time_table.write.parquet(
-        output_data + "time_table.parquet", 
+        output_data + "/time_table.parquet", 
         mode="overwrite", 
         partitionBy=["year", "month"])
 
@@ -213,7 +211,7 @@ def process_log_data(spark, input_data, output_data):
     
     # write songplays table to parquet files partitioned by year and month
     songplays_table.write.parquet(
-    output_data + "songplays_table.parquet",
+    output_data + "/songplays_table.parquet",
     mode="overwrite", 
     partitionBy=["year", "month"])
 
