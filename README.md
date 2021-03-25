@@ -27,13 +27,11 @@ time - which contains start
 
 ### Instructions
 You will need to create a configuration file dl.cfg with the following structure, with S3 read and write policy.
-
-
-
+```
 [AWS]
 AWS_ACCESS_KEY_ID=<your_aws_access_key_id> <br/>
 AWS_SECRET_ACCESS_KEY=<your_aws_secret_access_key>
-
+```
 To execute the ETL pipeline from the command line, enter the following:
 
 python etl.py --bucket <your-output-s3-bucket-name>
